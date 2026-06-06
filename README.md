@@ -81,7 +81,8 @@ anewone/
 │   ├── Plateforme.png / ...eer4.png       # Textures des sols et plateformes
 │   ├── player.png / player_jump_...       # Sprites d'états et animations du joueur
 │   ├── start_button.png                   # Bouton de lancement du menu
-│   └── the_message.png                    # Bannière de transition textuelle
+│   ├── the_message.png                    # Bannière de transition textuelle
+│   └── audio/
 │
 └── bin/                                   # Fichiers compilés (.class auto-générés)
 ```
