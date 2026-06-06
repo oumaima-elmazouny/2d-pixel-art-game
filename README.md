@@ -144,6 +144,7 @@ User interface components:
 ## 3. Architecture Globale
 
 Le projet s'articule autour d'une boucle de jeu principale gérée par le GameManager via un AnimationTimer JavaFX. Cette architecture permet de synchroniser la physique du joueur, les mouvements des ennemis et la mise à jour graphique.
+
 ┌─────────────────────────────────────────────────────────┐
 │                        Main.java                        │
 │                (Application Entry Point)                │
@@ -152,23 +153,23 @@ Le projet s'articule autour d'une boucle de jeu principale gérée par le GameMa
                      ▼
 ┌─────────────────────────────────────────────────────────┐
 │                       GameManager                       │
-│  ┌──────────────────────────────────────────────────┐  │
-│  │  • Boucle de jeu principale (AnimationTimer)     │  │
-│  │  • Gestion fine des états (Enum GameState)       │  │
-│  │  • Écoute et gestion des entrées Clavier/Souris  │  │
-│  │  • Contrôle de l'UI (Barre de vie, menus HUD)    │  │
-│  └──────────────────────────────────────────────────┘  │
+│  ┌──────────────────────────────────────────────────┐   │
+│  │  • Game Loop (AnimationTimer)                    │   │
+│  │  • State Management (GameState enum)             │   │
+│  │  • Input Handling                                │   │
+│  │  • UI Management (HealthBar, Hearts, HomeScreen) │   │
+│  └──────────────────────────────────────────────────┘   │
 └────────────────────┬────────────────────────────────────┘
                      │
          ┌───────────┴───────────┐
          │                       │
          ▼                       ▼
 ┌──────────────────┐    ┌──────────────────────┐
-│   LevelManager   │    │        Player        │
-│   (Interface)    │    │  • Moteur physique   │
-│                  │    │  • États & Animations│
-│  ┌────────────┐  │    │  • Système de cœurs  │
-│  │ Platformer │  │    │  • Mouvements/Sauts  │
+│  LevelManager    │    │        Player        │
+│  (Interface)     │    │  • Physics           │
+│                  │    │  • Animations        │
+│  ┌────────────┐  │    │  • Health/Hearts     │
+│  │ Platformer │  │    │  • Movement          │
 │  │ Level      │  │    └──────────────────────┘
 │  └────────────┘  │
 │  ┌────────────┐  │
@@ -180,11 +181,12 @@ Le projet s'articule autour d'une boucle de jeu principale gérée par le GameMa
          ▼
 ┌─────────────────────────────────────────┐
 │                Entities                 │
-│  • Ennemis (BugEnemy, Monster)          │
-│  • Décors (Platform, FlyingPlatform)    │
-│  • Objets (CrystalReward, Projectiles)  │
-│  • Fin de niveau (FantasyGate)          │
+│  • Enemies (BugEnemy, Monster)          │
+│  • Platforms (Platform, FlyingPlatform) │
+│  • Items (CrystalReward, Projectiles)   │
+│  • Gate (FantasyGate)                   │
 └─────────────────────────────────────────┘
+
 ## 4. Configuration des Ressources Audio
 
 Pour que les sons fonctionnent correctement, les fichiers audio doivent être copiés dans le dossier `bin/audio/` OU configurés dans le classpath.
