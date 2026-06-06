@@ -89,7 +89,7 @@ anewone/
 
 **Package Organization**
 
- **com.platformer.core **
+ **com.platformer.core**
 
 Core game systems and managers:
 
@@ -103,7 +103,7 @@ Core game systems and managers:
 
     GameState: Enum defining game states (MENU, LEVEL_1, COMBAT_LEVEL, etc.)
 
- **com.platformer.entities **
+ **com.platformer.entities**
 
 All game entities organized by type:
 
@@ -115,7 +115,7 @@ All game entities organized by type:
 
     FantasyGate: Special entity for level completion
 
- **com.platformer.levels **
+ **com.platformer.levels**
 
 Level management system:
 
@@ -131,7 +131,7 @@ Level management system:
 
     combat/: Combat level implementation
 
- **com.platformer.ui **
+ **com.platformer.ui**
 
 User interface components:
 
