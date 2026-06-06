@@ -141,52 +141,6 @@ User interface components:
 
     HomeScreen: Main menu screen
 ---
-## 3. Architecture Globale
-
-Le projet s'articule autour d'une boucle de jeu principale gérée par le GameManager via un AnimationTimer JavaFX. Cette architecture permet de synchroniser la physique du joueur, les mouvements des ennemis et la mise à jour graphique.
-
-┌─────────────────────────────────────────────────────────┐
-│                        Main.java                        │
-│                (Application Entry Point)                │
-└────────────────────┬────────────────────────────────────┘
-                     │
-                     ▼
-┌─────────────────────────────────────────────────────────┐
-│                       GameManager                       │
-│  ┌──────────────────────────────────────────────────┐   │
-│  │  • Game Loop (AnimationTimer)                    │   │
-│  │  • State Management (GameState enum)             │   │
-│  │  • Input Handling                                │   │
-│  │  • UI Management (HealthBar, Hearts, HomeScreen) │   │
-│  └──────────────────────────────────────────────────┘   │
-└────────────────────┬────────────────────────────────────┘
-                     │
-         ┌───────────┴───────────┐
-         │                       │
-         ▼                       ▼
-┌──────────────────┐    ┌──────────────────────┐
-│  LevelManager    │    │        Player        │
-│  (Interface)     │    │  • Physics           │
-│                  │    │  • Animations        │
-│  ┌────────────┐  │    │  • Health/Hearts     │
-│  │ Platformer │  │    │  • Movement          │
-│  │ Level      │  │    └──────────────────────┘
-│  └────────────┘  │
-│  ┌────────────┐  │
-│  │ Combat     │  │
-│  │ Level      │  │
-│  └────────────┘  │
-└──────────────────┘
-         │
-         ▼
-┌─────────────────────────────────────────┐
-│                Entities                 │
-│  • Enemies (BugEnemy, Monster)          │
-│  • Platforms (Platform, FlyingPlatform) │
-│  • Items (CrystalReward, Projectiles)   │
-│  • Gate (FantasyGate)                   │
-└─────────────────────────────────────────┘
-
 ## 4. Configuration des Ressources Audio
 
 Pour que les sons fonctionnent correctement, les fichiers audio doivent être copiés dans le dossier `bin/audio/` OU configurés dans le classpath.
